@@ -1,2 +1,2 @@
-# Vue Example
+# Vanilla JS Example
 Coming Soon
