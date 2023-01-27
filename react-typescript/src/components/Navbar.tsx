@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { WalletConnect } from "./WalletConnect";
+import { WalletConnectButton } from "./WalletConnectButton";
 
 function Navbar() {
   const { pathname: currentPage } = useLocation();
@@ -24,7 +24,7 @@ function Navbar() {
                 <Link to="/action-card" className={currentPage === '/action-card' ? baseRouteClasses + activeRouteClasses : baseRouteClasses}>Action Card</Link>
               </li>
               <li>
-                <WalletConnect />
+                <WalletConnectButton />
               </li>
             </ul>
           </div>
