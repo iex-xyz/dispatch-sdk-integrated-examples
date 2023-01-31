@@ -24,7 +24,7 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
-    "@iex-xyz/sdk": "0.0.7",
+    "@iex-xyz/sdk": "0.0.8",
     "@headlessui/react": "1.7.7",
     "buffer": "6.0.3",
     "ethers": "5.7.2",
