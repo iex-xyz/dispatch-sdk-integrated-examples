@@ -14,6 +14,7 @@ import { toast } from "react-toastify";
 import { BigNumber } from "ethers";
 import { fetchBalance, prepareWriteContract, writeContract } from "@wagmi/core";
 import { useAccount, useDisconnect, useSignMessage, useSwitchNetwork, useNetwork } from "wagmi";
+import { Address } from "abitype";
 
 import { WalletConnectModal } from "./WalletConnectModal"
 
@@ -48,7 +49,7 @@ const DispatchCard = ({ dispatchMessageId }: DispatchCardProps) => {
       })
     );
     return () => dispatch.destroy();
-  }, [switchNetwork]);
+  }, [switchNetwork, dispatchMessageId]);
 
   useEffect(() => {
     if (walletAddress) {
@@ -131,7 +132,7 @@ const DispatchCard = ({ dispatchMessageId }: DispatchCardProps) => {
   const handleGetTokenBalance: IOnGetTokenBalance = async ({ event }) => {
     try {
       const balance = await fetchBalance({
-        addressOrName: event.data.walletAddress,
+        address: event.data.walletAddress,
         token: event.data.tokenAddress,
       });
       dispatch.sendTokenBalance({
@@ -157,7 +158,7 @@ const DispatchCard = ({ dispatchMessageId }: DispatchCardProps) => {
     try {
       const config = await prepareWriteContract({
         abi,
-        address: contractAddress,
+        address: contractAddress as Address,
         args,
         functionName,
         overrides: {
