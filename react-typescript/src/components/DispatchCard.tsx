@@ -35,6 +35,7 @@ const DispatchCard = ({ dispatchMessageId }: DispatchCardProps) => {
   useEffect(() => {
     setDispatchEmbedUrl(
       dispatch.create({
+        autoHeight: true,
         dispatchMessageId,
         onExecuteContract: handleExecuteContract,
         onGetTokenBalance: handleGetTokenBalance,
@@ -200,7 +201,6 @@ const DispatchCard = ({ dispatchMessageId }: DispatchCardProps) => {
       {dispatchEmbedUrl ? (
         <iframe
           allow="clipboard-read; clipboard-write"
-          height={1000}
           width={600}
           src={dispatchEmbedUrl}
           title="dispatch poll card"
